@@ -100,7 +100,7 @@ public:
 
 	// Dynamic::Var parse(const std::string& json);
 		/// Parses JSON from a string.
-    inline Dynamic::Var Parser::parse(const std::string& json)
+    inline Dynamic::Var parse(const std::string& json)
     {
     	return parseImpl(json);
     }
