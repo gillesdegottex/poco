@@ -35,9 +35,9 @@ namespace JSON {
 
 class JSON_API Parser: private ParserImpl
 	/// A parser for reading RFC 4627 compliant JSON from strings or streams.
-	/// 
+	///
 	/// Simple usage example:
-	/// 
+	///
 	///    std::string json = "{ \"name\" : \"Franky\", \"children\" : [ \"Jonas\", \"Ellen\" ] }";
 	///    Parser parser;
 	///    Var result = parser.parse(json);
@@ -54,7 +54,7 @@ class JSON_API Parser: private ParserImpl
 	/// containing a Poco::SharedPtr to an Object or Array instance.
 	///
 	/// Example:
-	/// 
+	///
 	///    std::string json = "{ \"name\" : \"Franky\", \"children\" : [ \"Jonas\", \"Ellen\" ] }";
 	///    Parser parser;
 	///    Var result = parser.parse(json);
@@ -81,9 +81,9 @@ public:
 		/// Returns true if comments are allowed, false otherwise.
 		///
 		/// By default, comments are not allowed.
-		
+
 	void setAllowNullByte(bool nullByte);
-		/// Allow or disallow null byte in strings. 
+		/// Allow or disallow null byte in strings.
 		///
 		/// By default, null byte is allowed.
 
@@ -98,8 +98,12 @@ public:
 	std::size_t getDepth() const;
 		/// Returns the allowed JSON depth.
 
-	Dynamic::Var parse(const std::string& json);
+	// Dynamic::Var parse(const std::string& json);
 		/// Parses JSON from a string.
+    inline Dynamic::Var Parser::parse(const std::string& json)
+    {
+    	return parseImpl(json);
+    }
 
 	Dynamic::Var parse(std::istream& in);
 		/// Parses JSON from an input stream.
@@ -185,10 +189,10 @@ inline void Parser::reset()
 }
 
 
-inline Dynamic::Var Parser::parse(const std::string& json)
-{
-	return parseImpl(json);
-}
+// inline Dynamic::Var Parser::parse(const std::string& json)
+// {
+// 	return parseImpl(json);
+// }
 
 
 inline Dynamic::Var Parser::parse(std::istream& in)
