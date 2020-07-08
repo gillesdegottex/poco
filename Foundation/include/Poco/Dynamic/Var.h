@@ -486,8 +486,12 @@ public:
 	void clear();
 		/// Empties Var.
 
-	bool isEmpty() const;
+	// bool isEmpty() const;
 		/// Returns true if empty.
+	inline bool isEmpty() const
+	{
+		return 0 == content();
+	}
 
 	bool isInteger() const;
 		/// Returns true if stored value is integer.
@@ -778,10 +782,10 @@ inline bool Var::operator ! () const
 }
 
 
-inline bool Var::isEmpty() const
-{
-	return 0 == content();
-}
+// inline bool Var::isEmpty() const
+// {
+// 	return 0 == content();
+// }
 
 
 inline bool Var::isArray() const
