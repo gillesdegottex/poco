@@ -48,7 +48,7 @@ public:
 		/// Creates a Timespan from another one.
 
 	// ~Timespan();
-	inline Timespan::~Timespan() {}
+	inline ~Timespan() {}
 		/// Destroys the Timespan.
 
 	Timespan& operator = (const Timespan& timespan);
