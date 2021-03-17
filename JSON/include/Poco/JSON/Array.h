@@ -125,8 +125,12 @@ public:
 		/// Retrieves an object. When the element is not
 		/// an object or doesn't exist, an empty SharedPtr is returned.
 
-	std::size_t size() const;
+	// std::size_t size() const;
 		/// Returns the size of the array.
+	inline std::size_t size() const
+	{
+		return static_cast<std::size_t>(_values.size());
+	}
 
 	bool isArray(unsigned int index) const;
 		/// Returns true when the element is an array.
@@ -239,10 +243,10 @@ inline Array::ValueVec::const_iterator Array::end() const
 }
 
 
-inline std::size_t Array::size() const
-{
-	return static_cast<std::size_t>(_values.size());
-}
+// inline std::size_t Array::size() const
+// {
+// 	return static_cast<std::size_t>(_values.size());
+// }
 
 
 inline bool Array::isArray(unsigned int index) const
